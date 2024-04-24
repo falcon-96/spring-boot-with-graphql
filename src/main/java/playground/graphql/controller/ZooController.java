@@ -5,7 +5,7 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import playground.graphql.model.Animal;
-import playground.graphql.model.Animals;
+import playground.graphql.model.Creature;
 import playground.graphql.service.ZooService;
 
 import java.util.List;
@@ -30,7 +30,7 @@ public class ZooController {
     }
 
     @MutationMapping
-    Animal admitAnimal(@Argument Animals animals) {
-        return zooService.addAnimalToZoo(animals);
+    Animal admitAnimal(@Argument Creature creature) {
+        return zooService.addAnimalToZoo(creature);
     }
 }

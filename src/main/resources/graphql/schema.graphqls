@@ -4,10 +4,10 @@ type Query {
 }
 
 type Mutation {
-    admitAnimal(animal: Animals): Animal
+    admitAnimal(creature: Creature): Animal
 }
 
-input Animals{
+input Creature{
     id: ID!
     name: String!
 }

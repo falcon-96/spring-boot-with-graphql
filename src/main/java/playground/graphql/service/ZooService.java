@@ -3,7 +3,7 @@ package playground.graphql.service;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Service;
 import playground.graphql.model.Animal;
-import playground.graphql.model.Animals;
+import playground.graphql.model.Creature;
 
 import java.util.List;
 
@@ -31,12 +31,12 @@ public class ZooService {
                 .single();
     }
 
-    public Animal addAnimalToZoo(Animals animals) {
+    public Animal addAnimalToZoo(Creature creature) {
         jdbcClient.sql("INSERT INTO ZOO(ID, NAME) VALUES(?, ?)")
-                .param(animals.id())
-                .param(animals.name())
+                .param(creature.id())
+                .param(creature.name())
                 .update();
 
-        return new Animal(animals.id(), animals.name());
+        return findAnimalById(creature.id());
     }
 }
