@@ -1,9 +1,11 @@
 package playground.graphql.controller;
 
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import playground.graphql.model.Animal;
+import playground.graphql.model.Animals;
 import playground.graphql.service.ZooService;
 
 import java.util.List;
@@ -25,5 +27,10 @@ public class ZooController {
     @QueryMapping
     List<Animal> animals() {
         return zooService.findAllAnimals();
+    }
+
+    @MutationMapping
+    Animal admitAnimal(@Argument Animals animals) {
+        return zooService.addAnimalToZoo(animals);
     }
 }

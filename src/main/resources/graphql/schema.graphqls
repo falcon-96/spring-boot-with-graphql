@@ -3,6 +3,15 @@ type Query {
     animalById(id: ID!): Animal
 }
 
+type Mutation {
+    admitAnimal(animal: Animals): Animal
+}
+
+input Animals{
+    id: ID!
+    name: String!
+}
+
 type Animal {
     id: ID!
     name: String!
